@@ -54,7 +54,8 @@ public class TestEchoController {
     @DisplayName("異常系: 省略 ⇒ 数字以外が入る")
     public void testEcho_省略() throws Exception {
       mockMvc.perform(get("/echo").param("message", "12a34"))
-          .andExpect(status().isBadRequest());
+          .andExpect(status().isBadRequest())
+          .andExpect(content().string("{\"errors\":[{\"field\":\"message\",\"message\":\"must match \\\"[0-9]*\\\"\"}]}"));
     }
   }
 }
