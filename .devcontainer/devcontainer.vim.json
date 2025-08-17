@@ -1,0 +1,50 @@
+{
+  "remoteEnv": {
+    "EDITOR": "~/squashfs-root/AppRun",
+    "PAGER": "sed -r 's/\\x1B\\[[0-9;]*[mGKH]//g' | ~/squashfs-root/AppRun -R -",
+    "LESSCHARSET": "utf-8",
+    "SHELL": "bash",
+    "TERM": "xterm-256color",
+    "HISTCONTROL": "erasedups",
+    "OPENAI_API_KEY": "${localEnv:OPENAI_API_KEY}",
+  },
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code @openai/codex @google/gemini-cli",
+  "appPort": [
+    "8080:8080"
+  ],
+  "mounts": [
+    {
+      "type": "bind",
+      "source": "${localEnv:HOME}/.vim",
+      "target": "/home/vscode/.vim"
+    },
+    {
+      "type": "bind",
+      "source": "${localEnv:HOME}/.gitconfig",
+      "target": "/home/vscode/.gitconfig"
+    },
+    {
+      "type": "bind",
+      "source": "${localEnv:HOME}/.ssh",
+      "target": "/home/vscode/.ssh"
+    },
+    {
+      "type": "bind",
+      "source": "${localEnv:HOME}/.claude.json",
+      "target": "/home/vscode/.claude.json"
+    },
+    {
+      "type": "bind",
+      "source": "${localEnv:HOME}/.codex",
+      "target": "/home/vscode/.codex"
+    },
+    {
+      "type": "bind",
+      "source": "${localEnv:HOME}/.gemini",
+      "target": "/home/vscode/.gemini"
+    },
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
+  }
+}
