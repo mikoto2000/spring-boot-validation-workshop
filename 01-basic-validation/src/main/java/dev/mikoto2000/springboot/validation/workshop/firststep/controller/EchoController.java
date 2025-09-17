@@ -12,6 +12,9 @@ import jakarta.validation.constraints.Pattern;
 @RestController
 public class EchoController {
 
+  /**
+   * 引数を直接バリデーション。
+   */
   @GetMapping("/echo")
   public String echo(
       @RequestParam(required = false, defaultValue = "")
