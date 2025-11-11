@@ -58,9 +58,9 @@ public class ValidationExceptionHandler {
 
     log.info("handleMethodArgumentNotValidException: {}", e);
 
-    List<ValidationError> errors = e.getFieldErrors().stream().map((error) ->
-        new ValidationError(error.getField(), error.getDefaultMessage())
-    ).toList();
+    List<ValidationError> errors = e.getFieldErrors().stream()
+        .map((error) -> new ValidationError(error.getField(), error.getDefaultMessage()))
+        .toList();
 
     return new ValidationErrors(errors);
   }
@@ -74,7 +74,7 @@ public class ValidationExceptionHandler {
   public ValidationErrors handleMethodArgumentNotValidException(HttpMessageNotReadableException e) {
     log.info("handleMethodArgumentNotValidException: {}", e);
 
-    List<ValidationError> errors = Arrays.asList(new ValidationError(null, e.getLocalizedMessage()));
+    List<ValidationError> errors = List.of(new ValidationError(null, e.getLocalizedMessage()));
 
     return new ValidationErrors(errors);
   }

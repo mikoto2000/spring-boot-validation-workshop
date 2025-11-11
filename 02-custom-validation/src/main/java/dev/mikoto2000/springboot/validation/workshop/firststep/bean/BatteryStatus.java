@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class BatteryStatus {
   // バッテリー残量（0〜100の範囲, ただし、255 は不明とする）
-  // 無理矢理感あるが、 IoT 機器とかの API でたまにこういうのがあしい
+  // 無理矢理感あるが、 IoT 機器とかの API でたまにこういうのがある
   @NotNull
   @RangeEx(min = 0, max = 100, others = {255})
   private Integer batteryLevel;
