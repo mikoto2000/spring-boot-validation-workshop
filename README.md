@@ -527,9 +527,6 @@ dev.mikoto2000.springboot.validation.workshop.firststep.validation.constraints.R
 `src/main/resources/ValidationMessages_en.properties` や `src/main/resources/ValidationMessages_ja.properties` 等を作成することで、言語別のデフォルトメッセージ定義が可能。
 
 出力するメッセージは、リクエストヘッダーの `Locale` ヘッダーを見て判断される。
-`src/main/resources/ValidationMessages_en.properties` や `src/main/resources/ValidationMessages_ja.properties` 等を作成することで、言語別のデフォルトメッセージ定義が可能。
-
-出力するメッセージは、リクエストヘッダーの `Locale` ヘッダーを見て判断される。
 
 
 # バリデーションエラーの返却
